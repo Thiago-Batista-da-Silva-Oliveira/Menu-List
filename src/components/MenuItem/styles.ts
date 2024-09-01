@@ -25,6 +25,7 @@ export const DetailsContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: 5px;
+    margin-top: 10px;
 `;
 
 export const Icon = styled(BsFillCartPlusFill)`
