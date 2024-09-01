@@ -7,9 +7,10 @@ export default createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
   }
-  
   body {
     background-color: #f7f7f7;
-
+  }
+  :root {
+    --primary: #f7af1d;
   }
 `;

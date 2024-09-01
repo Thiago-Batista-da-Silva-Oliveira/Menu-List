@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { BsFillCartPlusFill } from "react-icons/bs";
+
 
 export const Container = styled.div`
  display: flex;
@@ -23,4 +25,8 @@ export const DetailsContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: 5px;
+`;
+
+export const Icon = styled(BsFillCartPlusFill)`
+    color: var(--primary);
 `;

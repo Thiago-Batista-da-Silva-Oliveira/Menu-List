@@ -1,6 +1,5 @@
-import { BsFillCartPlusFill } from "react-icons/bs";
 import { Button } from "../Button";
-import { CartContainer, Container, ContentImage, DetailsContainer } from "./styles";
+import { CartContainer, Container, ContentImage, DetailsContainer, Icon } from "./styles";
 import { Text } from "../Text/styles";
 
 interface IProps {
@@ -17,14 +16,14 @@ export const MenuItem = ({ name, price, src }: IProps) => {
       <Button
         style={{width: "120px", marginTop: '-20px'}}
         onClick={() => console.log("Adicionado ao carrinho")}
-        icon={<BsFillCartPlusFill color="#f7af1d" />}
+        icon={<Icon />}
         title="Adicionar"
       />
       </CartContainer>
       <DetailsContainer>
         <Text fontWeight="bold" size="md">{name}</Text>
         <Text style={{
-          color: '#f7af1d'
+          color: 'var(--primary)'
         }} size="md">{price.toLocaleString('pt-BR', {
           style: 'currency',
           currency: 'BRL'
