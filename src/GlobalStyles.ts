@@ -6,6 +6,10 @@ export default createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+  }
+  
+  body {
     background-color: #f7f7f7;
+
   }
 `;

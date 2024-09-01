@@ -5,7 +5,7 @@ interface IProps extends React.HTMLAttributes<HTMLParagraphElement> {
     fontWeight?: 'normal' | 'bold';
 }
 
-export const Text = styled.p<IProps>`
+export const Text = styled.span<IProps>`
   font-size: ${({ size }) => size === 'sm' ? '12px' : size === 'md' ? '16px' : '24px'};
   font-weight: ${({ fontWeight }) => fontWeight === 'bold' ? 'bold' : 'normal'};
 `;
