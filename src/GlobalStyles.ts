@@ -12,5 +12,6 @@ export default createGlobalStyle`
   }
   :root {
     --primary: #f7af1d;
+    --red: #f00;
   }
 `;

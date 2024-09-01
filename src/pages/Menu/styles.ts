@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { FaTrash } from "react-icons/fa";
 
 interface IProps {
   isMobile: boolean;
@@ -18,3 +19,13 @@ export const MenuContent = styled.div<IProps>`
   justify-content: ${({ isMobile }) => (isMobile ? "center" : "flex-start")};
   gap: 20px;
 `;
+
+export const IconButton = styled.button`
+  border: none;
+  outline: none;
+  cursor: pointer;
+`
+
+export const TrashIcon = styled(FaTrash)`
+  color: var(--red)
+`

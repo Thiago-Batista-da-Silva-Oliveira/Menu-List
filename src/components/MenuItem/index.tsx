@@ -6,16 +6,17 @@ interface IProps {
   src: string;
   name: string;
   price: number;
+  onClick: () => void;
 }
 
-export const MenuItem = ({ name, price, src }: IProps) => {
+export const MenuItem = ({ name, price, src, onClick }: IProps) => {
   return (
     <Container>
       <CartContainer>
       <ContentImage  src={src} />
       <Button
         style={{width: "120px", marginTop: '-20px'}}
-        onClick={() => console.log("Adicionado ao carrinho")}
+        onClick={() => onClick()}
         icon={<Icon />}
         title="Adicionar"
       />

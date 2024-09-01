@@ -22,15 +22,15 @@ const mockedData = [
     }
 ]
 
-interface IOutput {
+export interface IDesserts {
     id: string;
     name: string;
     price: number;
     image: string;
 }
 
-const fetchDesserts = async (): Promise<IOutput[]> => {
- const data = new Promise<IOutput[]>((resolve) => {
+const fetchDesserts = async (): Promise<IDesserts[]> => {
+ const data = new Promise<IDesserts[]>((resolve) => {
     setTimeout(() => {
         resolve(mockedData)
     }, 1000)
