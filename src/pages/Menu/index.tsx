@@ -6,6 +6,7 @@ import emptyCart from "../../assets/emptyCart.png";
 import { IDesserts, useFetchDessets } from "../../api";
 import { MenuItemSkeleton } from "../../components/MenuItem/MenuItemSkeleton";
 import { useState } from "react";
+import { storage } from "../../utils/storage";
 
 interface IItemsInCart {
   id: string;
@@ -17,6 +18,7 @@ interface IItemsInCart {
 export const Menu = () => {
   const { data, isLoading } = useFetchDessets();
   const { isMobile } = useDeviceType();
+  const [itemsInCart, setItemsInCart] = useState<IItemsInCart[]>(storage.get("itemsInCart") || []);
   const handleAddItemToCart = (item: IDesserts) => {
     const itemInCart = itemsInCart.find((itemInCart) => itemInCart.id === item.id);
     if (itemInCart) {
@@ -30,8 +32,10 @@ export const Menu = () => {
         return itemInCart;
       });
       setItemsInCart(newItemsInCart);
+      storage.set("itemsInCart", newItemsInCart);
     } else {
       setItemsInCart([...itemsInCart, { ...item, quantity: 1 }]);
+      storage.set("itemsInCart", [...itemsInCart, { ...item, quantity: 1 }]);
     }
   }
   const handleRemoveItemFromCart = (id: string) => {
@@ -40,6 +44,7 @@ export const Menu = () => {
       if (itemInCart.quantity === 1) {
         const newItemsInCart = itemsInCart.filter((itemInCart) => itemInCart.id !== id);
         setItemsInCart(newItemsInCart);
+        storage.set("itemsInCart", newItemsInCart);
       } else {
         const newItemsInCart = itemsInCart.map((itemInCart) => {
           if (itemInCart.id === id) {
@@ -51,10 +56,10 @@ export const Menu = () => {
           return itemInCart;
         });
         setItemsInCart(newItemsInCart);
+        storage.set("itemsInCart", newItemsInCart);
       }
     }
   }
-  const [itemsInCart, setItemsInCart] = useState<IItemsInCart[]>([]);
   return (
     <Container isMobile={isMobile}>
       <div style={{ display: "flex", flexDirection: "column", flex: 1 }}>
